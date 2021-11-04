@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>KPI Benchmarking</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>/PM11/LKPIBMRPTTOP</SOBJ_NAME>
+    <SOBJ_NAME>/PM11/SAPLKPIBMRPT</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>KPI Benchmarking</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IR_WERKS</PARAMETER>
+       <TYP>/ZPM/WERKS_RANGE_T</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IR_ARBPL</PARAMETER>
+       <TYP>/ZPM/ARBPL_RANGE_T</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IR_RPI</PARAMETER>
+       <TYP>/ZPM/KPIID_RANGE_T</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_OUTPUT</PARAMETER>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>ES_RETURN</PARAMETER>
+       <TYP>BAPIRET2</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IR_WERKS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range Table for PLANT</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IR_ARBPL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range Table for Work Centre</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IR_RPI</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range Table for KPI ID</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_OUTPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ES_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Parameter</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM01</FUNCNAME>
+     <SHORT_TEXT>Percentage Work Order with Corrective Action Task Lists</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM02</FUNCNAME>
+     <SHORT_TEXT>Percentage Task Lists for secondary actions</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM03</FUNCNAME>
+     <SHORT_TEXT>Percentage Materials in BOMs</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM04</FUNCNAME>
+     <SHORT_TEXT>Percentage Materials used on Work Orders in BOMs</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM05</FUNCNAME>
+     <SHORT_TEXT>Percentage Annual Estimates updated</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM06</FUNCNAME>
+     <SHORT_TEXT>Percentage Counter Based Plans</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM07</FUNCNAME>
+     <SHORT_TEXT>Percentage Shift Factors Last Completed</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM08</FUNCNAME>
+     <SHORT_TEXT>Percentage Counters with Over Counter Reading</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM09</FUNCNAME>
+     <SHORT_TEXT>Percentage Counters with Over Counter Reading</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM10</FUNCNAME>
+     <SHORT_TEXT>Percentage Counters with Over Counter Reading</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIBM11</FUNCNAME>
+     <SHORT_TEXT>Percentage Counters with Over Counter Reading</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/ZPM/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
