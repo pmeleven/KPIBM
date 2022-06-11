@@ -8,6 +8,7 @@
     <DATATYPE>CHAR</DATATYPE>
     <LENG>000040</LENG>
     <OUTPUTLEN>000040</OUTPUTLEN>
+    <LOWERCASE>X</LOWERCASE>
     <DDTEXT>KPI Definition</DDTEXT>
    </DD01V>
   </asx:values>

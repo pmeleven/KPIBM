@@ -15,15 +15,15 @@
      <IMPORT>
       <RSIMP>
        <PARAMETER>IR_WERKS</PARAMETER>
-       <TYP>/ZPM/WERKS_RANGE_T</TYP>
+       <TYP>/PM11/WERKS_RANGE_T</TYP>
       </RSIMP>
       <RSIMP>
        <PARAMETER>IR_ARBPL</PARAMETER>
-       <TYP>/ZPM/ARBPL_RANGE_T</TYP>
+       <TYP>/PM11/ARBPL_RANGE_T</TYP>
       </RSIMP>
       <RSIMP>
        <PARAMETER>IR_RPI</PARAMETER>
-       <TYP>/ZPM/KPIID_RANGE_T</TYP>
+       <TYP>/PM11/KPIID_RANGE_T</TYP>
       </RSIMP>
      </IMPORT>
      <EXPORT>
