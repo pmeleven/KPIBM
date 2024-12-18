@@ -1,4 +1,4 @@
-FUNCTION /PM11/FM_KPIBM01.
+FUNCTION /PM11/FM_KPIMM06.
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
@@ -11,13 +11,13 @@ FUNCTION /PM11/FM_KPIBM01.
            order_no TYPE aufnr,
          END OF ty_warpl.
 
-  DATA: ls_results    TYPE /pm11/kpirep2s_results,
-        ls_crhd       TYPE /pm11/kpirep2s_crhd,
-        ls_crss       TYPE /pm11/kpirep2s_crhd,
-        lv_total_wo   TYPE /pm11/kpiresult,
-        lv_wo_with_tl TYPE /pm11/kpiresult,
-        lt_wo         TYPE STANDARD TABLE OF ty_warpl,
-        wa_date       TYPE sy-datum.
+  DATA: ls_results TYPE /pm11/kpirep2s_results,
+        ls_crhd    TYPE /pm11/kpirep2s_crhd,
+        ls_crss    TYPE /pm11/kpirep2s_crhd,
+        lines_261  TYPE /pm11/kpiresult,
+        lines_262  TYPE /pm11/kpiresult,
+        lt_wo      TYPE STANDARD TABLE OF ty_warpl,
+        wa_date    TYPE sy-datum.
 
 * Get Description of Object ID
   DATA(lt_crhd) = it_crhd[].
@@ -50,7 +50,7 @@ FUNCTION /PM11/FM_KPIBM01.
     FROM /pm11/kpirptbml AS l
     INNER JOIN /pm11/kpirptbm AS a ON a~kpiid = l~kpiid
     INTO @DATA(ls_kpiid_text)
-   WHERE a~obj_name = '/PM11/FM_KPIBM01'
+   WHERE a~kpiid_tx = 'MM01'
      AND l~spras = @sy-langu.                           "#EC CI_NOORDER
 
   MOVE it_crhd[] TO lt_crhd[].
@@ -69,42 +69,37 @@ FUNCTION /PM11/FM_KPIBM01.
   SORT lt_crss BY werks arbpl.
   LOOP AT lt_crss INTO ls_crss.
 
-    CLEAR: ls_results, lt_wo, lv_total_wo, lv_wo_with_tl.
+    CLEAR: ls_results, lt_wo, lines_261, lines_262.
 
     IF ls_crss-objid IS INITIAL.
-      SELECT aufk~aufnr
-        FROM aufk
-       INNER JOIN afih
-          ON aufk~aufnr = afih~aufnr
-        INTO TABLE @lt_wo
-       WHERE afih~warpl = ''
-         AND aufk~erdat > @wa_date
-         AND aufk~werks = @ls_crss-werks.
+      SELECT mseg~bwart
+        FROM mseg
+        WHERE mseg~budat_mkpf = @wa_date
+        AND mseg~bwtar IS INITIAL
+        AND mseg~bwart = '261'
+        AND mseg~werks = @ls_crss-werks
+       INTO TABLE @DATA(results_261).
 
-      SORT lt_wo BY order_no.
-      DELETE ADJACENT DUPLICATES FROM lt_wo
-                                 COMPARING order_no.
+      SELECT mseg~bwart
+        FROM mseg
+        WHERE mseg~budat_mkpf = @wa_date
+        AND mseg~bwtar IS INITIAL
+        AND mseg~bwart = '262'
+        AND mseg~werks = @ls_crss-werks
+       INTO TABLE @DATA(results_262).
 
-      SELECT SINGLE COUNT(*)
-        FROM @lt_wo AS wo
-        INTO @lv_total_wo.
-
-      SELECT SINGLE COUNT(*)
-        FROM afko
-       INNER JOIN @lt_wo AS wo
-          ON afko~aufnr = wo~order_no
-       WHERE afko~plnnr <> ''
-        INTO @lv_wo_with_tl.
+      DESCRIBE TABLE results_261 LINES lines_261.
+      DESCRIBE TABLE results_262 LINES lines_262.
 
       ls_results-werks = ls_crss-werks.
 
-      IF lv_total_wo IS NOT INITIAL.
-        ls_results-kpiresult = lv_wo_with_tl / lv_total_wo * 100.
+      IF lines_261 IS NOT INITIAL OR lines_262 IS NOT INITIAL.
+        ls_results-kpiresult = lines_262 / ( lines_261 + lines_262 ) * 100.
       ELSE.
         ls_results-kpiresult = 0.
       ENDIF.
-      ls_results-denom   = lv_total_wo.
-      ls_results-numer   = lv_wo_with_tl.
+      ls_results-denom   = lines_261 + lines_262.
+      ls_results-numer   = lines_262.
       ls_results-kpiid   = ls_kpiid_text-kpiid.
       ls_results-kpitext = ls_kpiid_text-kpitext.
       ls_results-date_calculated = sy-datlo.
@@ -122,48 +117,48 @@ FUNCTION /PM11/FM_KPIBM01.
       ENDTRY.
 
       LOOP AT lt_crhd INTO ls_crhd WHERE objid_up = ls_crss-objid.
-        SELECT aufk~aufnr
-          FROM aufk
-         INNER JOIN afih
-            ON aufk~aufnr = afih~aufnr
-          INTO TABLE @lt_wo
-         WHERE afih~warpl = ''
-           AND aufk~erdat > @wa_date
-           AND aufk~werks = @ls_crss-werks
-           AND afih~gewrk = @ls_crss-objid.
-
-        SORT lt_wo BY order_no.
-        DELETE ADJACENT DUPLICATES FROM lt_wo
-                                   COMPARING order_no.
-
-        SELECT SINGLE COUNT(*)
-          FROM @lt_wo AS wo
-          INTO @lv_total_wo.
-
-        SELECT SINGLE COUNT(*)
-          FROM afko
-         INNER JOIN @lt_wo AS wo
-            ON afko~aufnr = wo~order_no
-         WHERE afko~plnnr <> ''
-          INTO @lv_wo_with_tl.
+*        SELECT aufk~aufnr
+*          FROM aufk
+*         INNER JOIN afih
+*            ON aufk~aufnr = afih~aufnr
+*          INTO TABLE @lt_wo
+*         WHERE afih~warpl = ''
+*           AND aufk~erdat > @wa_date
+*           AND aufk~werks = @ls_crss-werks
+*           AND afih~gewrk = @ls_crss-objid.
+*
+*        SORT lt_wo BY order_no.
+*        DELETE ADJACENT DUPLICATES FROM lt_wo
+*                                   COMPARING order_no.
+*
+*        SELECT SINGLE COUNT(*)
+*          FROM @lt_wo AS wo
+*          INTO @lv_total_wo.
+*
+*        SELECT SINGLE COUNT(*)
+*          FROM afko
+*         INNER JOIN @lt_wo AS wo
+*            ON afko~aufnr = wo~order_no
+*         WHERE afko~plnnr <> ''
+*          INTO @lv_wo_with_tl.
 
         ls_results-werks = lwa_crhd-werks.
         ls_results-arbpl = lwa_crhd-arbpl.
         ls_results-ktext = lwa_crtx.
 
-        IF lv_total_wo IS NOT INITIAL.
-          ls_results-kpiresult = lv_wo_with_tl / lv_total_wo * 100.
+        IF lines_261 IS NOT INITIAL OR lines_262 IS NOT INITIAL.
+          ls_results-kpiresult = lines_262 / ( lines_261 + lines_262 ) * 100.
         ELSE.
           ls_results-kpiresult = 0.
         ENDIF.
-        ls_results-denom   = lv_total_wo.
-        ls_results-numer   = lv_wo_with_tl.
+        ls_results-denom   = lines_261 + lines_262.
+        ls_results-numer   = lines_262.
         ls_results-kpiid   = ls_kpiid_text-kpiid.
         ls_results-kpitext = ls_kpiid_text-kpitext.
         ls_results-date_calculated = sy-datlo.
         APPEND ls_results TO et_results.
 
-        CLEAR: ls_results, lt_wo, lv_wo_with_tl, lv_total_wo.
+        CLEAR: ls_results, lt_wo, lines_261, lines_262.
 
       ENDLOOP.
     ENDIF.

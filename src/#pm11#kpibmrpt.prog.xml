@@ -14,7 +14,7 @@
     <item>
      <ID>I</ID>
      <KEY>001</KEY>
-     <ENTRY>Performance Indicator Calculation Report</ENTRY>
+     <ENTRY>Benchmark Metrics Report</ENTRY>
      <LENGTH>40</LENGTH>
     </item>
     <item>
@@ -26,12 +26,12 @@
     <item>
      <ID>I</ID>
      <KEY>T01</KEY>
-     <ENTRY>KPI Display</ENTRY>
+     <ENTRY>Metric Display</ENTRY>
      <LENGTH>40</LENGTH>
     </item>
     <item>
      <ID>R</ID>
-     <ENTRY>Performance Indicator Calculation Report</ENTRY>
+     <ENTRY>Benchmark Metrics Report</ENTRY>
      <LENGTH>40</LENGTH>
     </item>
     <item>
@@ -43,8 +43,8 @@
     <item>
      <ID>S</ID>
      <KEY>S_RPI</KEY>
-     <ENTRY>KPI</ENTRY>
-     <LENGTH>11</LENGTH>
+     <ENTRY>Metric</ENTRY>
+     <LENGTH>14</LENGTH>
     </item>
     <item>
      <ID>S</ID>

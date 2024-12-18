@@ -11,8 +11,8 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>Include /PM11/KPIREP2_SEL_SCRN</ENTRY>
-     <LENGTH>30</LENGTH>
+     <ENTRY>Include /PM11/KPIRPTBM_SEL_SCRN</ENTRY>
+     <LENGTH>31</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

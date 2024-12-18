@@ -26,7 +26,7 @@ FUNCTION /PM11/FM_KPIBM04.
     FROM /pm11/kpirptbml AS l
     INNER JOIN /pm11/kpirptbm AS a ON a~kpiid = l~kpiid
     INTO @DATA(ls_kpiid_text)
-   WHERE a~kpiid_tx = 'BM04'
+   WHERE a~obj_name = '/PM11/FM_KPIBM04'
      AND l~spras = @sy-langu.                           "#EC CI_NOORDER
 
   CALL FUNCTION 'RP_CALC_DATE_IN_INTERVAL'

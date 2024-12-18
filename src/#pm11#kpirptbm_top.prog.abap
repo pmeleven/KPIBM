@@ -1,7 +1,7 @@
 *&---------------------------------------------------------------------*
 *&  Include           /PM11/KPIRPTBM_TOP
 *&---------------------------------------------------------------------*
-TABLES: crhd, /pm11/kpirep2.
+TABLES: crhd, /pm11/kpirptbm.
 
 DATA: gt_output     TYPE        /pm11/kpirep2t_results,
       go_alv        TYPE REF TO cl_salv_table,

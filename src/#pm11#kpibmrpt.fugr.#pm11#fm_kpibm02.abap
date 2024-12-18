@@ -2,7 +2,7 @@ FUNCTION /pm11/fm_kpibm02.
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
-*"     REFERENCE(IT_CRHD) TYPE  /ZPM/KPIREP2T_CRHD
+*"     REFERENCE(IT_CRHD) TYPE  /PM11/KPIREP2T_CRHD
 *"  EXPORTING
 *"     REFERENCE(ET_RESULTS) TYPE  /PM11/KPIREP2T_RESULTS
 *"----------------------------------------------------------------------
@@ -54,7 +54,7 @@ FUNCTION /pm11/fm_kpibm02.
     FROM /pm11/kpirptbml AS l
     INNER JOIN /pm11/kpirptbm AS a ON a~kpiid = l~kpiid
     INTO @DATA(ls_kpiid_text)
-   WHERE a~kpiid_tx = 'BM02'
+   WHERE a~obj_name = '/PM11/FM_KPIBM02'
      AND l~spras = @sy-langu.                           "#EC CI_NOORDER
 
   MOVE it_crhd[] TO lt_crhd[].

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>MM Benchmark KPIs</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>/PM11/LKPIBMRPT_MMTOP</SOBJ_NAME>
+    <SOBJ_NAME>/PM11/SAPLKPIBMRPT_MM</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIMM01</FUNCNAME>
+     <SHORT_TEXT>Percentage Material Issues Returned</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIMM05</FUNCNAME>
+     <SHORT_TEXT>Catalogued Material Spend %</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIMM06</FUNCNAME>
+     <SHORT_TEXT>% Material Issues Returned</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/PM11/FM_KPIMM07</FUNCNAME>
+     <SHORT_TEXT>% Lead Times Udpated</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_CRHD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/PM11/KPIREP2T_RESULTS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_CRHD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Work Centres</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RESULTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KPI Calculation Results</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

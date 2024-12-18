@@ -7,13 +7,13 @@ FORM s_rpi_f4 CHANGING p_rpi TYPE any.
 
 * Get all KPIIDs defined in the system.
   SELECT kpiid
-    FROM /pm11/kpirep2
+    FROM /pm11/kpirptbm
     INTO TABLE @DATA(lt_kpiid).
 
 * For the KPIIDs, get the description for that
   IF lt_kpiid[] IS NOT INITIAL.
     SELECT *
-      FROM /pm11/kpirep2l
+      FROM /pm11/kpirptbml
       INTO TABLE @DATA(lt_kpiid_text)
        FOR ALL ENTRIES IN @lt_kpiid
      WHERE kpiid = @lt_kpiid-kpiid

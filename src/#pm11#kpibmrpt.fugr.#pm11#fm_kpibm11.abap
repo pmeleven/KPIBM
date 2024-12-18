@@ -1,11 +1,11 @@
 FUNCTION /PM11/FM_KPIBM11.
-*"--------------------------------------------------------------------
+*"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
-*"     REFERENCE(IT_CRHD) TYPE  /ZPM/KPIREP2T_CRHD
+*"     REFERENCE(IT_CRHD) TYPE  /PM11/KPIREP2T_CRHD
 *"  EXPORTING
 *"     REFERENCE(ET_RESULTS) TYPE  /PM11/KPIREP2T_RESULTS
-*"--------------------------------------------------------------------
+*"----------------------------------------------------------------------
 
   TYPES: BEGIN OF ty_measuring_pt,
            measuring_pt TYPE imrc_point,
@@ -35,7 +35,7 @@ FUNCTION /PM11/FM_KPIBM11.
     FROM /pm11/kpirptbml AS l
     INNER JOIN /pm11/kpirptbm AS a ON a~kpiid = l~kpiid
     INTO @DATA(ls_kpiid_text)
-   WHERE a~kpiid_tx = 'BM11'
+   WHERE a~obj_name = '/PM11/FM_KPIBM11'
      AND l~spras = @sy-langu.                           "#EC CI_NOORDER
 
 * Calculate the KPI result for each Plant and update return table

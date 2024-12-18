@@ -55,7 +55,7 @@ FUNCTION /PM11/FM_KPIBM10.
     FROM /pm11/kpirptbml AS l
     INNER JOIN /pm11/kpirptbm AS a ON a~kpiid = l~kpiid
     INTO @DATA(ls_kpiid_text)
-   WHERE a~kpiid_tx = 'BM01'
+   WHERE a~obj_name = '/PM11/FM_KPIBM10'
      AND l~spras = @sy-langu.                           "#EC CI_NOORDER
 
   MOVE it_crhd[] TO lt_crhd[].

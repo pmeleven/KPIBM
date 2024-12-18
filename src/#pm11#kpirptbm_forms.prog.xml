@@ -11,8 +11,8 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>Include /PM11/KPIREP2_FORMS</ENTRY>
-     <LENGTH>27</LENGTH>
+     <ENTRY>Include /PM11/KPIRPTBM_FORMS</ENTRY>
+     <LENGTH>28</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

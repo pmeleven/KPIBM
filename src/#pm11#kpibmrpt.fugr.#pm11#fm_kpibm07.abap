@@ -1,11 +1,11 @@
 FUNCTION /PM11/FM_KPIBM07.
-*"--------------------------------------------------------------------
+*"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
 *"     REFERENCE(IT_CRHD) TYPE  /PM11/KPIREP2T_CRHD
 *"  EXPORTING
 *"     REFERENCE(ET_RESULTS) TYPE  /PM11/KPIREP2T_RESULTS
-*"--------------------------------------------------------------------
+*"----------------------------------------------------------------------
 
   TYPES: BEGIN OF ty_warpl,
            maint_plan TYPE warpl,
@@ -49,7 +49,7 @@ FUNCTION /PM11/FM_KPIBM07.
     FROM /pm11/kpirptbml AS l
     INNER JOIN /pm11/kpirptbm AS a ON a~kpiid = l~kpiid
     INTO @DATA(ls_kpiid_text)
-   WHERE a~kpiid_tx = 'BM07'
+   WHERE a~obj_name = '/PM11/FM_KPIBM07'
      AND l~spras = @sy-langu.                           "#EC CI_NOORDER
 
   MOVE it_crhd[] TO lt_crhd[].

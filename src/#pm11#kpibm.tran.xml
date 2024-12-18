@@ -17,7 +17,7 @@
    <TSTCT>
     <SPRSL>E</SPRSL>
     <TCODE>/PM11/KPIBM</TCODE>
-    <TTEXT>Display KPI Scores</TTEXT>
+    <TTEXT>Display Benchmark Metrics</TTEXT>
    </TSTCT>
   </asx:values>
  </asx:abap>
